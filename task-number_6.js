@@ -1,8 +1,6 @@
 const inpute = document.querySelector("#validation-input");
 const data = Number(inpute.getAttribute("data-length"));
 
-console.log();
-
 inpute.addEventListener("change", (e) => {
   if (inpute.value.length === 0) {
     inpute.classList.remove("valid");
@@ -18,4 +16,3 @@ inpute.addEventListener("change", (e) => {
     inpute.classList.add("invalid");
   }
 });
-console.log(inpute.value.length);
