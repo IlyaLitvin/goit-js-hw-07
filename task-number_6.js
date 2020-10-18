@@ -1,17 +1,21 @@
-// Напиши скрипт, который бы при потере фокуса на инпуте, проверял его содержимое на правильное количество символов.
-// Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.
-// Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
-// Для добавления стилей, используй CSS-классы valid и invalid.
+const inpute = document.querySelector("#validation-input");
+const data = Number(inpute.getAttribute("data-length"));
 
-const input = document.querySelector("#validation-input");
+console.log();
 
-input.addEventListener("change", (e) => {
-  e.preventDefault();
-  if (input.value.length < 6) {
-    input.classList.add("#validation-input.invalid");
-  } else if (input.value.length >= 6) {
-    input.classList.add("#validation-input.valid");
+inpute.addEventListener("change", (e) => {
+  if (inpute.value.length === 0) {
+    inpute.classList.remove("valid");
+    inpute.classList.remove("invalid");
+  }
+
+  if (inpute.value.length === data) {
+    inpute.classList.remove("invalid");
+    inpute.classList.add("valid");
+  }
+  if (inpute.value.length > data || inpute.value.length < data) {
+    inpute.classList.remove("valid");
+    inpute.classList.add("invalid");
   }
 });
-
-console.log(input.value.length);
+console.log(inpute.value.length);
